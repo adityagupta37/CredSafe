@@ -11,9 +11,7 @@ from credsafe.utils.io import ensure_dir
 def ingest(raw_glob: str, processed_dir: str) -> Path:
     files = sorted(glob.glob(raw_glob))
     if not files:
-        raise SystemExit(
-            f"No raw files found under {raw_glob}. Place CSVs in data/raw/."
-        )
+        raise SystemExit(f"No raw files found under {raw_glob}. Place CSVs in data/raw/.")
     df_list = [pd.read_csv(f) for f in files]
     df = pd.concat(df_list, axis=0, ignore_index=True)
 
@@ -29,4 +27,3 @@ if __name__ == "__main__":
     cfg = OmegaConf.load("configs/dataset.yaml")
     path = ingest(cfg.dataset.raw_glob, cfg.dataset.processed_dir)
     print(f"Ingested -> {path}")
-

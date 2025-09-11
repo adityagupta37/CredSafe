@@ -14,4 +14,3 @@ stages:
       - artifacts/pd_model.pkl
       - artifacts/preprocess.pkl
       - artifacts/metrics.json
-

@@ -25,9 +25,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.write(
-    "A compact credit risk app with scoring, policy, segments, fairness, and explainability."
-)
+st.write("A compact credit risk app with scoring, policy, segments, fairness, and explainability.")
 
 metrics_path = Path("artifacts/metrics.json")
 if metrics_path.exists():
@@ -43,4 +41,3 @@ else:
 
 st.divider()
 st.write("Use the sidebar pages to explore the app.")
-

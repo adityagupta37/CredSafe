@@ -14,4 +14,3 @@ artifacts:
   model: "artifacts/pd_model.pkl"
   preproc: "artifacts/preprocess.pkl"
   metrics: "artifacts/metrics.json"
-

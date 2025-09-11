@@ -1,10 +1,8 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Dict
 
 import joblib
-import numpy as np
 import pandas as pd
 from omegaconf import OmegaConf
 from sklearn.metrics import roc_auc_score
@@ -33,7 +31,7 @@ def main() -> None:
     policy = ProfitPolicy(**pcfg)
     policy_sel = select_threshold_by_profit(y, pd_hat, policy)
 
-    metrics: Dict[str, float] = {
+    metrics: dict[str, float] = {
         "auc": auc,
         "ks": ks,
         **{f"policy_{k}": v for k, v in policy_sel.items()},
@@ -58,4 +56,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

@@ -1,5 +1,6 @@
-from pathlib import Path
 import json
+from pathlib import Path
+
 import streamlit as st
 
 st.title("Fairness")
@@ -15,4 +16,3 @@ if mp.exists():
         st.info("No fairness group detected in data.")
 else:
     st.info("Run evaluation to compute metrics.")
-

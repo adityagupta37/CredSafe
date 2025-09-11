@@ -6,4 +6,3 @@ app:
     secondaryBackgroundColor: "#FFFFFF"
     textColor: "#1F2937"  # Gunmetal
   artifacts_dir: "artifacts"
-

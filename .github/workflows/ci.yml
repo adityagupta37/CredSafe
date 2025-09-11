@@ -32,4 +32,3 @@ jobs:
           m = importlib.import_module('credsafe')
           print('Imported:', m.__name__)
         PY
-

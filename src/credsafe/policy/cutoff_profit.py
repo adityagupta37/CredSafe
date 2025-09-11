@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Dict, Tuple
 
 import numpy as np
 
@@ -17,7 +16,7 @@ class ProfitPolicy:
 
 def expected_profit(
     y_true: np.ndarray, pd: np.ndarray, threshold: float, cfg: ProfitPolicy
-) -> Tuple[float, Dict[str, float]]:
+) -> tuple[float, dict[str, float]]:
     approve = pd < threshold
     approval_rate = approve.mean() if approve.size else 0.0
 
@@ -26,7 +25,7 @@ def expected_profit(
     el = (pd_approved * cfg.lgd * cfg.ead).mean() if pd_approved.size else 0.0
     yield_rate = cfg.annual_yield
     cost = cfg.servicing_cost
-    profit_per_loan = (yield_rate - el - cost)
+    profit_per_loan = yield_rate - el - cost
     expected_profit_value = approval_rate * profit_per_loan
     return expected_profit_value, {
         "approval_rate": float(approval_rate),
@@ -39,7 +38,7 @@ def select_threshold_by_profit(
     y_true: np.ndarray,
     pd: np.ndarray,
     cfg: ProfitPolicy | None = None,
-) -> Dict[str, float]:
+) -> dict[str, float]:
     cfg = cfg or ProfitPolicy()
     grid = np.linspace(0.01, 0.99, cfg.threshold_grid_size)
     best = {"threshold": 0.5, "expected_profit": -np.inf}
@@ -52,4 +51,3 @@ def select_threshold_by_profit(
                 **details,
             }
     return best
-

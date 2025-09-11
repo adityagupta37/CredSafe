@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from typing import Dict, List
-
 import numpy as np
 from sklearn.metrics import roc_auc_score
 
@@ -26,9 +24,9 @@ def group_metrics(
     scores: np.ndarray,
     group: np.ndarray,
     threshold: float,
-    groups: List[str] | None = None,
-) -> Dict[str, Dict[str, float]]:
-    out: Dict[str, Dict[str, float]] = {}
+    groups: list[str] | None = None,
+) -> dict[str, dict[str, float]]:
+    out: dict[str, dict[str, float]] = {}
     labels = groups or np.unique(group)
     for g in labels:
         mask = group == g
@@ -48,4 +46,3 @@ def group_metrics(
         srs = [m["selection_rate"] for m in out.values()]
         out["_parity"] = {"selection_rate_delta_max": float(max(srs) - min(srs))}
     return out
-

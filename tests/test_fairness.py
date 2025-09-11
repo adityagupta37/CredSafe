@@ -1,4 +1,5 @@
 import numpy as np
+
 from credsafe.fairness.metrics import group_metrics
 
 
@@ -8,4 +9,3 @@ def test_group_metrics_shape():
     g = np.array(["A", "A", "B", "B"])
     out = group_metrics(y, s, g, threshold=0.5)
     assert "A" in out and "B" in out
-

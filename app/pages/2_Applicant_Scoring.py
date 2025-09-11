@@ -1,13 +1,12 @@
 from __future__ import annotations
 
 import io
+import json
 from pathlib import Path
 
 import joblib
-import numpy as np
 import pandas as pd
 import streamlit as st
-import json
 
 st.title("Applicant Scoring")
 

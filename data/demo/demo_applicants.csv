@@ -5,4 +5,3 @@ id,age,income,tenor,amount,gender,defaulted
 4,51,90000,36,300000,F,0
 5,26,30000,12,80000,M,1
 6,38,62000,24,200000,F,0
-

@@ -38,4 +38,3 @@ def save_json(data: Any, path: os.PathLike | str) -> None:
 
 def load_config(path: os.PathLike | str) -> Any:
     return OmegaConf.load(path)
-

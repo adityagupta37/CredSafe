@@ -1,10 +1,8 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Dict, Tuple
 
 import joblib
-import numpy as np
 import pandas as pd
 from omegaconf import OmegaConf
 from sklearn.calibration import CalibratedClassifierCV
@@ -21,8 +19,8 @@ def train_pd(
     df: pd.DataFrame,
     target: str,
     id_column: str | None,
-    cfg: Dict,
-) -> Tuple[Pipeline, Dict[str, float]]:
+    cfg: dict,
+) -> tuple[Pipeline, dict[str, float]]:
     preproc, feature_cols = build_preprocess_pipeline(df, target, id_column)
 
     X = df[feature_cols]
@@ -35,7 +33,18 @@ def train_pd(
     base = LogisticRegression(max_iter=200, class_weight=cfg.get("class_weight", None))
     if cfg.get("calibration", "isotonic") in {"isotonic", "platt"}:
         method = "isotonic" if cfg["calibration"] == "isotonic" else "sigmoid"
-        clf = CalibratedClassifierCV(base, method=method, cv=StratifiedKFold(n_splits=3))
+        # determine safe number of CV folds for tiny datasets
+        min_class = int(min((y_train == 0).sum(), (y_train == 1).sum()))
+        if min_class >= 3:
+            cv = StratifiedKFold(n_splits=3)
+        elif min_class == 2:
+            cv = StratifiedKFold(n_splits=2)
+        else:
+            cv = None  # disable calibration for extremely small datasets
+        if cv is None:
+            clf = base
+        else:
+            clf = CalibratedClassifierCV(base, method=method, cv=cv)
     else:
         clf = base
 
@@ -71,4 +80,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

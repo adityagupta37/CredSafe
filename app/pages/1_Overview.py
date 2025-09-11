@@ -1,6 +1,6 @@
+import json
 from pathlib import Path
 
-import json
 import streamlit as st
 
 st.title("Overview")
@@ -13,4 +13,3 @@ if metrics_path.exists():
     st.json(m)
 else:
     st.info("Train and evaluate the model to see metrics.")
-
