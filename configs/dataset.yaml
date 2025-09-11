@@ -1,0 +1,11 @@
+dataset:
+  id_column: "id"
+  target_column: "defaulted"
+  raw_glob: "data/raw/*.csv"
+  processed_dir: "data/processed"
+  test_size: 0.2
+  val_size: 0.1
+  random_state: 42
+  stratify: true
+  date_column: null
+

@@ -1,0 +1,7 @@
+policy:
+  lgd: 0.45
+  ead: 1.0
+  annual_yield: 0.24
+  servicing_cost: 0.02
+  threshold_grid_size: 200
+

@@ -1,0 +1,9 @@
+app:
+  title: "CredSafe Risk Desk"
+  theme:
+    primaryColor: "#059669"  # Emerald
+    backgroundColor: "#F5F5F4"  # Warm Gray
+    secondaryBackgroundColor: "#FFFFFF"
+    textColor: "#1F2937"  # Gunmetal
+  artifacts_dir: "artifacts"
+

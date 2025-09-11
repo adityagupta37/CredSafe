@@ -1,0 +1,17 @@
+stages:
+  ingest:
+    cmd: python -m credsafe.data.ingest
+    deps:
+      - configs/dataset.yaml
+    outs:
+      - data/processed/dataset.parquet
+  train:
+    cmd: python -m credsafe.models.train_pd
+    deps:
+      - data/processed/dataset.parquet
+      - configs/model_pd.yaml
+    outs:
+      - artifacts/pd_model.pkl
+      - artifacts/preprocess.pkl
+      - artifacts/metrics.json
+

@@ -1,0 +1,44 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+.env/
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+
+# Data and artifacts
+data/raw/
+data/processed/
+artifacts/
+reports/
+!data/.gitkeep
+!artifacts/.gitkeep
+!reports/.gitkeep
+
+# Logs
+logs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# DVC
+.dvc/
+*.dvc
+
+# VSCode / IDE
+.vscode/
+.idea/
+
+# Streamlit
+.streamlit/
+
+# OS files
+.DS_Store
+

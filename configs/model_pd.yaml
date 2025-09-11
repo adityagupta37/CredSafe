@@ -1,0 +1,17 @@
+model_pd:
+  model_type: "logreg"  # options: logreg, lightgbm, catboost
+  calibration: "isotonic"  # options: none, platt, isotonic
+  n_splits: 5
+  random_state: 42
+  numeric_imputer: "median"
+  categorical_imputer: "most_frequent"
+  encoder: "onehot"  # options: onehot, target
+  scaler: null  # options: standard, minmax, null
+  class_weight: "balanced"
+
+artifacts:
+  dir: "artifacts"
+  model: "artifacts/pd_model.pkl"
+  preproc: "artifacts/preprocess.pkl"
+  metrics: "artifacts/metrics.json"
+

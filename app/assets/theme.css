@@ -1,0 +1,10 @@
+/* Minimal theme adjustments for CredSafe */
+:root {
+  --primary: #059669;
+  --text: #1F2937;
+}
+
+.stMarkdown h2 {
+  color: var(--text);
+}
+
