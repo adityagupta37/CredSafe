@@ -78,6 +78,3 @@ Hydra configs live in `configs/`. Edit `dataset.yaml` and `model_pd.yaml` to poi
 - Great Expectations is scaffolded but not enforced; add suites as you formalize the schema.
 - Replace the demo CSV under `data/demo/` with your own samples.
 
-## License
-
-This code is authored by Aditya Gupta (GitHub: @adityagupta37). Dataset usage must comply with the original data source’s license.
